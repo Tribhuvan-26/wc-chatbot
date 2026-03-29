@@ -1,52 +1,18 @@
-# \# Workshop Chatbot
+# Workshop Chatbot
 
-# 
+A simple chatbot that answers user queries based on predefined data or logic.
+It can be used for basic Q
 
-# A simple chatbot project built for workshop/demo purposes.
+## What it does
+- Takes user input
+- Processes the query
+- Returns a relevant response
 
-# 
+## Setup
+git clone https://github.com/Tribhuvan-26/wc-chatbot.git
+cd wc-chatbot
+pip install -r requirements.txt
+python app.py
 
-# \## Features
-
-# \- Basic chatbot interaction
-
-# \- Backend processing
-
-# \- Easy to extend
-
-# 
-
-# \## Tech Stack
-
-# \- Python
-
-# \- (add Flask / FastAPI / etc if you used)
-
-# 
-
-# \## Setup
-
-# 
-
-# 1\. Clone the repo:
-
-# &#x20;  git clone https://github.com/Tribhuvan-26/wc-chatbot.git
-
-# 
-
-# 2\. Install dependencies:
-
-# &#x20;  pip install -r requirements.txt
-
-# 
-
-# 3\. Run:
-
-# &#x20;  python app.py  # or your main file
-
-# 
-
-# \## Notes
-
-# \- Virtual environment (venv) is not included
-
+## Author
+Tribhuvan
