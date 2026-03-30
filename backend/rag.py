@@ -7,6 +7,12 @@ load_dotenv()
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
+# Ensure vectorstore exists
+if not os.path.exists("vectorstore/chunks.pkl"):
+    import ingest
+    ingest.main()
+
+# Load chunks
 with open("vectorstore/chunks.pkl", "rb") as f:
     chunks = pickle.load(f)
 
