@@ -6,13 +6,18 @@ Workshop Carnival 2.0 is a technical event organized by MLRIT-CIE where students
 
 Event Dates:
 
-Workshop Carnival 2.0 will be conducted over 2 days.
+Workshop Carnival 2.0 will be conducted on 10th and 11th April.
 
-Day 1:
+Day 1 (10th April):
 Workshops and hands-on learning sessions in selected domains.
 
-Day 2:
+Day 2 (11th April):
 Continuation of workshops and a contest in the second half of the day.
+
+Date-related keywords:
+- dates: 10th & 11th April
+- when: 10th and 11th April
+- event dates: 10–11 April
 
 --------------------------------------------------
 
@@ -88,6 +93,9 @@ A: Yes, solo, duo, or trio
 Q: Prize pool?  
 A: ₹30,000  
 
+Q: What are the dates?  
+A: 10th and 11th April  
+
 --------------------------------------------------
 
 Contact Information:
@@ -95,10 +103,10 @@ Contact Information:
 For more details, contact:
 
 Mahima  
-Phone:+91 9493362006
+Phone: +91 9493362006
 
 Yashasri  
-Phone:+91 9959062396
+Phone: +91 9959062396
 
 Email:
 ciemlrit@mlrit.ac.in
