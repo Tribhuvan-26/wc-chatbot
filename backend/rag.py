@@ -1,18 +1,5 @@
 import os
-import warnings
-import logging
-warnings.filterwarnings("ignore")
-logging.getLogger("sentence_transformers").setLevel(logging.ERROR)
-logging.getLogger("transformers").setLevel(logging.ERROR)
-logging.getLogger("huggingface_hub").setLevel(logging.ERROR)
-logging.getLogger("faiss").setLevel(logging.ERROR)
-os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
-os.environ["TOKENIZERS_PARALLELISM"] = "false"
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
-
-import faiss
 import pickle
-import numpy as np
 from google import genai
 from dotenv import load_dotenv
 
@@ -20,39 +7,30 @@ load_dotenv()
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
-# Lazy-loaded globals
-embedder = None
-index = None
-chunks = None
+with open("vectorstore/chunks.pkl", "rb") as f:
+    chunks = pickle.load(f)
 
-def load_resources():
-    global embedder, index, chunks
 
-    if embedder is None:
-        from sentence_transformers import SentenceTransformer
+def search_chunks(question):
+    results = []
+    words = question.lower().split()
 
-        embedder = SentenceTransformer("all-MiniLM-L6-v2")
-        index = faiss.read_index("vectorstore/index.faiss")
+    for chunk in chunks:
+        chunk_lower = chunk.lower()
+        if any(word in chunk_lower for word in words):
+            results.append(chunk)
 
-        with open("vectorstore/chunks.pkl", "rb") as f:
-            chunks = pickle.load(f)
+    return results[:5]
 
 
 def get_answer(question: str) -> str:
     try:
-        load_resources()
-
-        question_embedding = embedder.encode([question])
-        question_embedding = np.array(question_embedding).astype("float32")
-
-        _, indices = index.search(question_embedding, k=5)
-
-        relevant_chunks = [chunks[i] for i in indices[0] if i < len(chunks)]
+        relevant_chunks = search_chunks(question)
         context = "\n\n".join(relevant_chunks)
 
-        prompt = f"""You are a helpful assistant for Workshop Carnival 2.0, organized by MLRIT-CIE.
-Answer the user's question using ONLY the context provided below.
-If the answer is not in the context, say "I don't have that information right now. Please contact us at ciemlrit@mlrit.ac.in"
+        prompt = f"""You are a helpful assistant for Workshop Carnival 2.0.
+Answer ONLY using the context below.
+If not found, say you don't know.
 
 Context:
 {context}
@@ -69,4 +47,4 @@ Answer:"""
         return response.text
 
     except Exception as e:
-        return f"Sorry, I encountered an error: {str(e)}"
+        return f"Error: {str(e)}"
