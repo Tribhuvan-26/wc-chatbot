@@ -1,17 +1,15 @@
 import os
 import pickle
-import re
 from google import genai
 
-# Get API key from Render environment
+# Load API key from Render
 api_key = os.environ.get("GEMINI_API_KEY")
-
 if not api_key:
     raise ValueError("GEMINI_API_KEY not found")
 
 client = genai.Client(api_key=api_key)
 
-# Ensure vectorstore exists
+# Auto-generate chunks if missing
 if not os.path.exists("vectorstore/chunks.pkl"):
     import ingest
     ingest.main()
@@ -21,84 +19,100 @@ with open("vectorstore/chunks.pkl", "rb") as f:
     chunks = pickle.load(f)
 
 
-# ---------- NEW: NORMALIZE ----------
-def normalize(text):
-    text = text.lower()
-    text = re.sub(r'[^a-z0-9\s]', '', text)
-    return text
-
-
-# ---------- NEW: SYNONYMS ----------
-SYNONYMS = {
-    "ai": ["artificial intelligence", "machine learning"],
-    "ml": ["machine learning"],
-    "hacking": ["ethical hacking", "cybersecurity"],
-    "cyber": ["cybersecurity", "security"],
-    "web": ["web development", "frontend", "backend"],
-    "python": ["programming", "coding"]
-}
-
-
-def expand_query(query):
-    words = query.split()
-    expanded = words[:]
-
-    for word in words:
-        if word in SYNONYMS:
-            expanded.extend(SYNONYMS[word])
-
-    return " ".join(expanded)
-
-
-# ---------- UPDATED SEARCH ----------
+# 🔥 SMART SEARCH (keyword + synonym + scoring)
 def search_chunks(question):
-    query = normalize(question)
-    query = expand_query(query)
+    q = question.lower()
+
+    synonyms = {
+        "fee": ["cost", "price", "registration"],
+        "domain": ["field", "track", "workshop"],
+        "team": ["duo", "trio", "group"],
+        "prize": ["reward", "winnings", "cash"],
+        "ai": ["agentic ai"],
+        "hacking": ["ethical hacking", "cybersecurity"],
+        "data": ["data analytics"],
+        "design": ["ui ux"]
+    }
+
+    words = set(q.split())
+
+    # expand words using synonyms
+    expanded = set(words)
+    for word in words:
+        if word in synonyms:
+            expanded.update(synonyms[word])
 
     results = []
 
     for chunk in chunks:
-        chunk_text = normalize(chunk)
-
-        score = 0
-        for word in query.split():
-            if word in chunk_text:
-                score += 1
+        chunk_lower = chunk.lower()
+        score = sum(1 for word in expanded if word in chunk_lower)
 
         if score > 0:
             results.append((score, chunk))
 
-    results.sort(reverse=True, key=lambda x: x[0])
+    results.sort(reverse=True)
+    return [chunk for _, chunk in results[:5]]
 
-    return [chunk for _, chunk in results[:3]]
+
+# ⚡ FAST DIRECT ANSWERS (no Gemini needed)
+def quick_answer(question):
+    q = question.lower()
+
+    if any(x in q for x in ["fee", "cost", "price"]):
+        return "The registration fee is ₹369 per head."
+
+    if any(x in q for x in ["prize", "reward", "winnings"]):
+        return "The total prize pool is ₹30,000."
+
+    if any(x in q for x in ["domain", "workshop", "field"]):
+        return "The domains are App Dev, Web Dev, Agentic AI, Ethical Hacking, Data Analytics, and UI/UX."
+
+    if any(x in q for x in ["team", "duo", "trio", "group"]):
+        return "You can register as solo, duo, or trio. The fee is ₹369 per person."
+
+    return None
 
 
-# ---------- UPDATED ANSWER ----------
+# 🤖 MAIN FUNCTION
 def get_answer(question: str) -> str:
     try:
+        # 1. Try quick answers first (fast + reliable)
+        fast = quick_answer(question)
+        if fast:
+            return fast
+
+        # 2. Search relevant chunks
         relevant_chunks = search_chunks(question)
+        context = "\n\n".join(relevant_chunks)
 
-        if not relevant_chunks:
-            context = "General workshop topics include AI, Web Development, Cybersecurity, and Programming."
-        else:
-            context = "\n\n".join(relevant_chunks)
+        # 3. Generate answer using Gemini
+        prompt = f"""
+You are a friendly assistant for Workshop Carnival 2.0.
 
-        prompt = f"""You are a helpful assistant for Workshop Carnival 2.0.
-Answer using the context below. If exact info is missing, give a helpful related answer.
+Answer naturally like a human (not robotic).
+
+Rules:
+- Keep answers short and clear
+- Use context below
+- If info is missing, still try to help
+- Mention ₹369 for fee-related questions
+- Mention ₹30,000 for prize questions
 
 Context:
 {context}
 
 Question: {question}
 
-Answer:"""
+Answer:
+"""
 
         response = client.models.generate_content(
             model="gemini-2.5-flash",
             contents=prompt
         )
 
-        return response.text
+        return response.text.strip()
 
     except Exception as e:
         return f"Error: {str(e)}"
