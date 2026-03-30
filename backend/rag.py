@@ -1,13 +1,16 @@
 import os
 import pickle
 from google import genai
-from dotenv import load_dotenv
 
-load_dotenv()
+# Get API key from Render environment
+api_key = os.environ.get("GEMINI_API_KEY")
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+if not api_key:
+    raise ValueError("GEMINI_API_KEY not found")
 
-# Ensure vectorstore exists
+client = genai.Client(api_key=api_key)
+
+# Ensure vectorstore exists (auto-create on Render)
 if not os.path.exists("vectorstore/chunks.pkl"):
     import ingest
     ingest.main()
