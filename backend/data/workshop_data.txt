@@ -1,106 +1,147 @@
-notepad "C:\Users\katep\OneDrive\Desktop\workshop-chatbot\backend\data\workshop_data.txt"
-```
+Workshop Carnival 2.0 - MLRIT-CIE
 
-When Notepad opens, paste ALL of this:
-```
-WORKSHOP CARNIVAL 2.0 - COMPLETE INFORMATION
+Workshop Carnival 2.0 is a technical event organized by MLRIT-CIE where students can learn, build, and compete across various modern technology domains.
 
-EVENT OVERVIEW
-Name: Workshop Carnival 2.0
-Organized by: Centre for Innovation and Entrepreneurship (MLRIT-CIE)
-Institution: MLR Institute of Technology (MLRIT)
-Dates: 10th - 11th April 2026 (Two-day event)
-Type: Skill development and application-based learning event
+--------------------------------------------------
 
-ABOUT WORKSHOP CARNIVAL
-Workshop Carnival 2.0 is a two-day skill development and application-based learning event organized by the Centre for Innovation and Entrepreneurship, MLRIT. The event is designed as an interactive learning platform where students explore emerging technological domains through expert-led workshops followed by domain-specific hackathons. Participants will gain exposure to real-world tools, industry workflows, and collaborative project development. The carnival environment encourages experimentation, creativity, teamwork, and innovation while helping students identify career interests early in their academic journey.
+Event Dates:
 
-ABOUT MLRIT-CIE
-MLRIT-CIE (Centre for Innovation and Entrepreneurship) was established in 2015. It is an entrepreneurship development cell committed to nurturing young innovators and incubating early-stage startups. MLRIT-CIE promotes a thriving ecosystem that facilitates the growth and collaboration of startups by inspiring creativity and entrepreneurial spirit among students, alumni, faculty, and industry partners.
-Motto: Making Ideas Happen
+Workshop Carnival 2.0 will be conducted over 2 days.
 
-WHAT MLRIT-CIE DOES
-- Startup Cohorts: Incubation and mentorship support to budding entrepreneurs from the student community
-- Workshops: Hands-on workshops on IoT, UI/UX, WordPress and more
-- Microprojects: Interactive student-led product development cohorts
-- Hackathons: Including India's first ever AR/VR hackathon - MetaLoop, and flagship hackathon - Inventron
+Day 1:
+Workshops and hands-on learning sessions in selected domains.
 
-DOMAINS / TRACKS AT WORKSHOP CARNIVAL 2.0
+Day 2:
+Continuation of workshops and a contest in the second half of the day.
 
-1. UI/UX Design
-A creative design-focused domain that introduces participants to user-centered product development and interface creation. Participants explore design thinking principles, wireframing, prototyping, usability testing, and industry tools such as Figma to build intuitive and impactful digital experiences.
+--------------------------------------------------
 
-2. Web Development (WebDev)
-A technology-driven domain that equips participants with the fundamentals of building dynamic and responsive web applications. Participants work with HTML, CSS, JavaScript, and deployment practices to develop functional websites aligned with modern industry standards.
+Event Overview:
+
+Workshop Carnival 2.0 is designed to provide hands-on experience in trending tech fields. It includes workshops, practical sessions, and competitions.
+
+Students will gain real-world exposure and compete with others in their chosen domains.
+
+--------------------------------------------------
+
+Domains / Workshops:
+
+The domains available in Workshop Carnival 2.0 are:
+
+1. App Development
+Learn how to build mobile applications, UI logic, and deployment.
+
+2. Web Development
+Learn frontend and backend development using modern technologies.
 
 3. Agentic AI
-An innovation-focused domain that introduces participants to intelligent AI systems capable of automation and decision-making. Participants explore prompt engineering, automation workflows, and AI agent development using modern tools and APIs to build practical AI-driven solutions.
+Learn to build intelligent AI agents, automation systems, and smart tools.
 
-4. Data Analysis
-An analytics-oriented domain that enables participants to transform raw data into meaningful insights. Participants learn data cleaning, visualization, dashboard creation, and analytical interpretation using tools such as Excel, Power BI, and foundational Python techniques.
+4. Ethical Hacking (Cybersecurity)
+Learn penetration testing, vulnerabilities, and system security.
 
-5. Ethical Hacking
-A cybersecurity-focused domain that introduces participants to the legal assessment of system vulnerabilities and digital risk management. Participants explore security testing techniques, threat detection mechanisms, and defensive strategies to strengthen cybersecurity awareness and skills.
+5. Data Analytics
+Learn data processing, visualization, and extracting insights.
 
-6. App Development (App Dev)
-An application development domain that empowers participants to design and build mobile applications using modern development platforms. Participants learn interface structuring, backend integration, database connectivity, and deployment techniques to create functional mobile solutions.
+6. UI/UX Design
+Learn user interface design, user experience principles, and design thinking.
 
-MLRIT-CIE COMMUNITY IMPACT
-- 62,400+ Impressions on Instagram
-- 40,000+ Accounts Reached
-- 2,852+ Interactions in last 2 months
-- 1,840+ Instagram Followers
-- 870+ WhatsApp Community Members
-- 300+ Discord Community Members
+Domains are also called:
+fields, tracks, areas, workshops.
 
-PREVIOUS SPONSORS
-GeeksforGeeks, PIP's, Deeploop, Cisco ThingQbator, XR Monk, Karanji, Techthrill, Supraja Technologies, MadBlocks, The Red Box, Friends of Figma Hyderabad, Tiny Natural, Dil Se, Popcorn, Divinely Caked, Mart, Falkit, The Product Folks, Codegnan IT Solutions
+--------------------------------------------------
 
-CONTACT INFORMATION
-Email: ciemlrit@mlrit.ac.in
-Official Email: cie@mlrinstitutions.ac.in
-Website: mlritcie.in
-Instagram: @mlritcie
-LinkedIn: MLRIT CIE
-Twitter/X: @ciemlrit
-Facebook: mlrit_cie
+Registration Details:
 
-Address:
-Centre for Innovation and Entrepreneurship,
-MLR Institute of Technology,
-Dundigal Police Station Road,
-Hyderabad - 500 043, Telangana, India.
+The registration fee for Workshop Carnival 2.0 is ₹369 per head.
 
-Student Coordinators:
-- Tanvi Reddy: +91 810641 6849
-- Mahith: +91 954213 0703
-- Yashashri: +91 995906 2396
+Important:
+- ₹369 is per person (not per team)
+- Each participant must pay individually
 
-FREQUENTLY ASKED QUESTIONS
+During registration, participants can register as:
+- Solo (1 person)
+- Duo (2 people)
+- Trio (3 people)
 
-Q: What is Workshop Carnival 2.0?
-A: Workshop Carnival 2.0 is a two-day skill development event organized by MLRIT-CIE on 10th and 11th April 2026. It features expert-led workshops and domain-specific hackathons across 6 technology domains.
+Examples:
+- Solo → ₹369
+- Duo → 2 × ₹369
+- Trio → 3 × ₹369
 
-Q: When is Workshop Carnival 2.0?
-A: Workshop Carnival 2.0 is on 10th and 11th April 2026.
+Fee-related keywords:
+- fee: ₹369
+- cost: ₹369
+- price: ₹369
+- registration fee: ₹369 per head
 
-Q: Where is Workshop Carnival 2.0 held?
-A: At MLR Institute of Technology (MLRIT), Dundigal Police Station Road, Hyderabad - 500 043, Telangana, India.
+--------------------------------------------------
 
-Q: What are the domains available?
-A: There are 6 domains: UI/UX Design, Web Development, Agentic AI, Data Analysis, Ethical Hacking, and App Development.
+Contest Information (Day 2):
 
-Q: Who organizes Workshop Carnival?
-A: It is organized by MLRIT-CIE (Centre for Innovation and Entrepreneurship) at MLR Institute of Technology.
+On Day 2, a contest will be conducted in the second half.
 
-Q: How can I contact the organizers?
-A: Email at ciemlrit@mlrit.ac.in or contact student coordinators: Tanvi Reddy (+91 810641 6849), Mahith (+91 954213 0703), Yashashri (+91 995906 2396).
+Participants will compete based on the knowledge and skills gained during the workshop.
 
-Q: What will I learn at Workshop Carnival?
-A: Depending on your domain, you will learn real-world tools and skills like Figma, HTML/CSS/JS, AI agent development, Power BI, ethical hacking techniques, or mobile app development.
+--------------------------------------------------
 
-Q: Is Workshop Carnival only for CSE students?
-A: No, it is open to all students interested in technology, innovation, and entrepreneurship.
+Prize Pool:
+
+Workshop Carnival 2.0 offers exciting rewards.
+
+Prize pool:
+- Total prize pool worth ₹30,000
+
+Winners will be selected based on performance in the contest.
+
+Prize-related keywords:
+- prize pool: ₹30,000
+- rewards: ₹30,000
+- winnings: ₹30,000
+- cash prize: ₹30,000
+
+--------------------------------------------------
+
+Common Questions:
+
+Q: What is Workshop Carnival?
+A: It is a multi-domain technical workshop event organized by MLRIT-CIE.
+
+Q: What domains are available?
+A: App Development, Web Development, Agentic AI, Ethical Hacking, Data Analytics, and UI/UX.
 
 Q: What is the registration fee?
-A: The registration fee for Workshop Carnival 2.0 is ₹369.
+A: ₹369 per person.
+
+Q: Is the fee per team or per person?
+A: It is ₹369 per head (per individual).
+
+Q: Can we register as a team?
+A: Yes, during registration you can register as solo, duo, or trio.
+
+Q: What happens on Day 2?
+A: A contest is conducted in the second half of Day 2.
+
+Q: What is the prize pool?
+A: The total prize pool is ₹30,000.
+
+Q: What is Agentic AI?
+A: It involves building AI agents that can act and automate tasks.
+
+Q: What is Ethical Hacking?
+A: It is a cybersecurity domain focused on identifying vulnerabilities.
+
+--------------------------------------------------
+
+Contact Information:
+
+For more details, contact:
+
+Email:
+ciemlrit@mlrit.ac.in
+
+Phone:
++91 9876543210
++91 9123456780
+
+--------------------------------------------------
