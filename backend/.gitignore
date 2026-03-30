@@ -1,4 +1,0 @@
-.env
-newenv/
-__pycache__/
-vectorstore/
