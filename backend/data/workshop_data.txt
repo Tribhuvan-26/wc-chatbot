@@ -28,23 +28,12 @@ Domains / Workshops:
 
 The domains available in Workshop Carnival 2.0 are:
 
-1. App Development
-Learn how to build mobile applications, UI logic, and deployment.
-
-2. Web Development
-Learn frontend and backend development using modern technologies.
-
-3. Agentic AI
-Learn to build intelligent AI agents, automation systems, and smart tools.
-
-4. Ethical Hacking (Cybersecurity)
-Learn penetration testing, vulnerabilities, and system security.
-
-5. Data Analytics
-Learn data processing, visualization, and extracting insights.
-
-6. UI/UX Design
-Learn user interface design, user experience principles, and design thinking.
+1. App Development  
+2. Web Development  
+3. Agentic AI  
+4. Ethical Hacking (Cybersecurity)  
+5. Data Analytics  
+6. UI/UX Design  
 
 Domains are also called:
 fields, tracks, areas, workshops.
@@ -65,15 +54,9 @@ During registration, participants can register as:
 - Trio (3 people)
 
 Examples:
-- Solo → ₹369
-- Duo → 2 × ₹369
-- Trio → 3 × ₹369
-
-Fee-related keywords:
-- fee: ₹369
-- cost: ₹369
-- price: ₹369
-- registration fee: ₹369 per head
+- Solo → ₹369  
+- Duo → 2 × ₹369  
+- Trio → 3 × ₹369  
 
 --------------------------------------------------
 
@@ -81,55 +64,29 @@ Contest Information (Day 2):
 
 On Day 2, a contest will be conducted in the second half.
 
-Participants will compete based on the knowledge and skills gained during the workshop.
+Participants will compete based on the knowledge gained during the workshop.
 
 --------------------------------------------------
 
 Prize Pool:
 
-Workshop Carnival 2.0 offers exciting rewards.
-
-Prize pool:
-- Total prize pool worth ₹30,000
-
-Winners will be selected based on performance in the contest.
-
-Prize-related keywords:
-- prize pool: ₹30,000
-- rewards: ₹30,000
-- winnings: ₹30,000
-- cash prize: ₹30,000
+Total prize pool: ₹30,000
 
 --------------------------------------------------
 
 Common Questions:
 
-Q: What is Workshop Carnival?
-A: It is a multi-domain technical workshop event organized by MLRIT-CIE.
+Q: What is the fee?  
+A: ₹369 per head  
 
-Q: What domains are available?
-A: App Development, Web Development, Agentic AI, Ethical Hacking, Data Analytics, and UI/UX.
+Q: Is it per team?  
+A: No, per person  
 
-Q: What is the registration fee?
-A: ₹369 per person.
+Q: Can we register as a team?  
+A: Yes, solo, duo, or trio  
 
-Q: Is the fee per team or per person?
-A: It is ₹369 per head (per individual).
-
-Q: Can we register as a team?
-A: Yes, during registration you can register as solo, duo, or trio.
-
-Q: What happens on Day 2?
-A: A contest is conducted in the second half of Day 2.
-
-Q: What is the prize pool?
-A: The total prize pool is ₹30,000.
-
-Q: What is Agentic AI?
-A: It involves building AI agents that can act and automate tasks.
-
-Q: What is Ethical Hacking?
-A: It is a cybersecurity domain focused on identifying vulnerabilities.
+Q: Prize pool?  
+A: ₹30,000  
 
 --------------------------------------------------
 
@@ -137,11 +94,13 @@ Contact Information:
 
 For more details, contact:
 
+Mahima  
+Phone:+91 9493362006
+
+Yashasri  
+Phone:+91 9959062396
+
 Email:
 ciemlrit@mlrit.ac.in
-
-Phone:
-+91 9876543210
-+91 9123456780
 
 --------------------------------------------------
