@@ -1,5 +1,6 @@
 import os
 import pickle
+import time
 from google import genai
 
 # Load API key from Render
@@ -9,7 +10,7 @@ if not api_key:
 
 client = genai.Client(api_key=api_key)
 
-# Auto-generate chunks if missing
+# Auto-create vectorstore if missing
 if not os.path.exists("vectorstore/chunks.pkl"):
     import ingest
     ingest.main()
@@ -19,7 +20,7 @@ with open("vectorstore/chunks.pkl", "rb") as f:
     chunks = pickle.load(f)
 
 
-# 🔥 SMART SEARCH (keyword + synonym + scoring)
+# 🔍 SMART SEARCH
 def search_chunks(question):
     q = question.lower()
 
@@ -36,7 +37,6 @@ def search_chunks(question):
 
     words = set(q.split())
 
-    # expand words using synonyms
     expanded = set(words)
     for word in words:
         if word in synonyms:
@@ -55,7 +55,7 @@ def search_chunks(question):
     return [chunk for _, chunk in results[:5]]
 
 
-# ⚡ FAST DIRECT ANSWERS (no Gemini needed)
+# ⚡ QUICK ANSWERS
 def quick_answer(question):
     q = question.lower()
 
@@ -74,30 +74,23 @@ def quick_answer(question):
     return None
 
 
-# 🤖 MAIN FUNCTION
+# 🤖 MAIN FUNCTION (WITH RETRY)
 def get_answer(question: str) -> str:
     try:
-        # 1. Try quick answers first (fast + reliable)
+        # 1. Fast answers first
         fast = quick_answer(question)
         if fast:
             return fast
 
-        # 2. Search relevant chunks
+        # 2. Search context
         relevant_chunks = search_chunks(question)
         context = "\n\n".join(relevant_chunks)
 
-        # 3. Generate answer using Gemini
         prompt = f"""
 You are a friendly assistant for Workshop Carnival 2.0.
 
 Answer naturally like a human (not robotic).
-
-Rules:
-- Keep answers short and clear
-- Use context below
-- If info is missing, still try to help
-- Mention ₹369 for fee-related questions
-- Mention ₹30,000 for prize questions
+Keep it short and clear.
 
 Context:
 {context}
@@ -107,12 +100,23 @@ Question: {question}
 Answer:
 """
 
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt
-        )
+        # 3. Retry for 503 errors
+        for attempt in range(3):
+            try:
+                response = client.models.generate_content(
+                    model="gemini-2.5-flash",
+                    contents=prompt
+                )
+                return response.text.strip()
 
-        return response.text.strip()
+            except Exception as e:
+                if "503" in str(e):
+                    time.sleep(2)
+                else:
+                    raise e
+
+        # 4. Final fallback
+        return "Server is busy right now. Please try again in a few seconds."
 
     except Exception as e:
         return f"Error: {str(e)}"
