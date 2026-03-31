@@ -33,18 +33,28 @@ Domains / Workshops:
 
 The domains available in Workshop Carnival 2.0 are:
 
-1. App Development  
-2. Web Development  
-3. Agentic AI  
-4. Ethical Hacking (Cybersecurity)  
-5. Data Analytics  
-6. UI/UX Design  
+1. App Development
+Learn how to build mobile applications, app logic, and deployment.
+
+2. Web Development
+Learn frontend and backend development using modern web technologies.
+
+3. Agentic AI
+Learn to build intelligent AI agents that can automate tasks and make decisions.
+
+4. Ethical Hacking (Cybersecurity)
+Learn penetration testing, system vulnerabilities, and security techniques.
+
+5. Data Analytics
+Learn data processing, visualization, and extracting meaningful insights.
+
+6. UI/UX Design
+Learn user interface design, user experience principles, and design thinking.
 
 Domains are also called:
 fields, tracks, areas, workshops.
 
 --------------------------------------------------
-
 Registration Details:
 
 The registration fee for Workshop Carnival 2.0 is ₹369 per head.

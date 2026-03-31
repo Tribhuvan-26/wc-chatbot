@@ -107,7 +107,7 @@ Answer:
                     model="gemini-2.5-flash",
                     contents=prompt
                 )
-                return response.text.strip()
+                return response.text.replace("*", "").strip()
 
             except Exception as e:
                 if "503" in str(e):
