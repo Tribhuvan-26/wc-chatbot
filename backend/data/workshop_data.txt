@@ -33,28 +33,58 @@ Domains / Workshops:
 
 The domains available in Workshop Carnival 2.0 are:
 
-1. App Development
+1. App Development  
 Learn how to build mobile applications, app logic, and deployment.
 
-2. Web Development
+2. Web Development  
 Learn frontend and backend development using modern web technologies.
 
-3. Agentic AI
+3. Agentic AI  
 Learn to build intelligent AI agents that can automate tasks and make decisions.
 
-4. Ethical Hacking (Cybersecurity)
+4. Ethical Hacking (Cybersecurity)  
 Learn penetration testing, system vulnerabilities, and security techniques.
 
-5. Data Analytics
+Mentor: Roshan Kappala  
+Founder @Roblocksec | CTO @Relish Tech Global Solutions Private Limited  
+
+Domain SPOC: Shyam  
+
+--- Event Schedule (Reference) ---
+
+Day 1
+
+Time            | Activity / Session                                      | Details
+----------------|----------------------------------------------------------|-------------------------------
+09:20 – 09:40   | Registration & Introduction                              | Participant onboarding & briefing
+09:40 – 10:30   | Introduction to Cybersecurity                            | Basics & overview
+10:30 – 12:20   | Pentesting (Web, Network, Mobile Security)               | Hands-on session
+12:20 – 01:10   | Lunch Break                                              | —
+01:10 – 02:40   | Ethical Hacking (Hardware & Physical Tools)              | Practical + demo
+02:40 – 03:30   | Cybersecurity Career Paths                               | End-to-end guidance
+03:30 – 04:00   | Practical / Combined Lab                                 | Integrated exercises
+04:00 – 04:10   | Wrap-up & Q&A                                            | Closing
+
+Day 2
+
+Time            | Activity               | Details
+----------------|------------------------|----------------------------------------------
+09:20 – 12:20   | Contest                | 8 Challenges (4 Basic + 4 Advanced)
+12:20 – 01:10   | Lunch Break            | —
+01:10 – 03:30   | Evaluation & Results   | Judging + discussion
+03:30 – 04:10   | Valedictory            | Prize distribution, certificates & closing
+
+5. Data Analytics  
 Learn data processing, visualization, and extracting meaningful insights.
 
-6. UI/UX Design
+6. UI/UX Design  
 Learn user interface design, user experience principles, and design thinking.
 
 Domains are also called:
 fields, tracks, areas, workshops.
 
 --------------------------------------------------
+
 Registration Details:
 
 The registration fee for Workshop Carnival 2.0 is ₹369 per head.
@@ -106,6 +136,15 @@ A: ₹30,000
 Q: What are the dates?  
 A: 10th and 11th April  
 
+Q: What is POA?  
+A: Point of Contact (person to reach out for queries)
+
+Q: Who is the Domain SPOC?  
+A: The domain-specific coordinator responsible for that workshop (e.g., Ethical Hacking SPOC: Shyam)
+
+Q: Who is the mentor?  
+A: The expert guiding the workshop sessions (e.g., Ethical Hacking mentor: Roshan Kappala)
+
 --------------------------------------------------
 
 Contact Information:
@@ -113,12 +152,12 @@ Contact Information:
 For more details, contact:
 
 Mahima  
-Phone: +91 9493362006
+Phone: +91 9493362006  
 
 Yashasri  
-Phone: +91 9959062396
+Phone: +91 9959062396  
 
-Email:
+Email:  
 ciemlrit@mlrit.ac.in
 
 --------------------------------------------------
