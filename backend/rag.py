@@ -3,30 +3,34 @@ import pickle
 import time
 from google import genai
 
-# Load API key from Render
+# ==============================
+# 🔑 API SETUP
+# ==============================
 api_key = os.environ.get("GEMINI_API_KEY")
 if not api_key:
     raise ValueError("GEMINI_API_KEY not found")
 
 client = genai.Client(api_key=api_key)
 
-# Auto-create vectorstore if missing
+# ==============================
+# 📦 LOAD DATA
+# ==============================
 if not os.path.exists("vectorstore/chunks.pkl"):
     import ingest
     ingest.main()
 
-# Load chunks
 with open("vectorstore/chunks.pkl", "rb") as f:
     chunks = pickle.load(f)
 
-
-# 🔍 SMART SEARCH
+# ==============================
+# 🔍 IMPROVED SEARCH
+# ==============================
 def search_chunks(question):
     q = question.lower()
 
     synonyms = {
         "fee": ["cost", "price", "registration"],
-        "domain": ["field", "track", "workshop"],
+        "domain": ["field", "track"],
         "team": ["duo", "trio", "group"],
         "prize": ["reward", "winnings", "cash"],
         "ai": ["agentic ai"],
@@ -36,61 +40,90 @@ def search_chunks(question):
     }
 
     words = set(q.split())
-
     expanded = set(words)
+
+    # expand query
     for word in words:
         if word in synonyms:
             expanded.update(synonyms[word])
 
-    results = []
+    scored = []
 
     for chunk in chunks:
         chunk_lower = chunk.lower()
-        score = sum(1 for word in expanded if word in chunk_lower)
+
+        score = 0
+        for word in expanded:
+            if word in chunk_lower:
+                score += 1
+
+        # boost exact phrase matches
+        if q in chunk_lower:
+            score += 5
 
         if score > 0:
-            results.append((score, chunk))
+            scored.append((score, chunk))
 
-    results.sort(reverse=True)
-    return [chunk for _, chunk in results[:5]]
+    scored.sort(reverse=True)
 
+    return [chunk for _, chunk in scored[:5]]
 
-# ⚡ QUICK ANSWERS
+# ==============================
+# ⚡ SMART QUICK ANSWERS
+# ==============================
 def quick_answer(question):
     q = question.lower()
 
-    if any(x in q for x in ["fee", "cost", "price"]):
+    # Fee (strict)
+    if "fee" in q or ("cost" in q and "event" in q):
         return "The registration fee is ₹369 per head."
 
-    if any(x in q for x in ["prize", "reward", "winnings"]):
+    # Prize
+    if "prize" in q:
         return "The total prize pool is ₹30,000."
 
-    if any(x in q for x in ["domain", "workshop", "field"]):
-        return "The domains are App Dev, Web Dev, Agentic AI, Ethical Hacking, Data Analytics, and UI/UX."
+    # Dates
+    if "date" in q or "when" in q:
+        return "The event will be held on 10th and 11th April."
 
-    if any(x in q for x in ["team", "duo", "trio", "group"]):
+    # Team
+    if any(x in q for x in ["team", "duo", "trio"]):
         return "You can register as solo, duo, or trio. The fee is ₹369 per person."
+
+    # Domains ONLY if explicitly asked
+    if "all domains" in q or "list domains" in q or "what domains" in q:
+        return "The domains are App Dev, Web Dev, Agentic AI, Ethical Hacking, Data Analytics, and UI/UX."
 
     return None
 
-
-# 🤖 MAIN FUNCTION (WITH RETRY)
+# ==============================
+# 🤖 MAIN FUNCTION
+# ==============================
 def get_answer(question: str) -> str:
     try:
-        # 1. Fast answers first
-        fast = quick_answer(question)
+        q = question.lower()
+
+        # 1. Try quick answers
+        fast = quick_answer(q)
         if fast:
             return fast
 
-        # 2. Search context
-        relevant_chunks = search_chunks(question)
+        # 2. Retrieve context
+        relevant_chunks = search_chunks(q)
+
+        if not relevant_chunks:
+            return "I don't have that information right now. Please contact us at ciemlrit@mlrit.ac.in"
+
         context = "\n\n".join(relevant_chunks)
 
         prompt = f"""
-You are a friendly assistant for Workshop Carnival 2.0.
+You are an assistant for Workshop Carnival 2.0 (MLRIT-CIE).
 
-Answer naturally like a human (not robotic).
-Keep it short and clear.
+Rules:
+- Answer clearly and briefly
+- No markdown (*, **)
+- Use ONLY given context
+- Be helpful and natural
 
 Context:
 {context}
@@ -100,14 +133,20 @@ Question: {question}
 Answer:
 """
 
-        # 3. Retry for 503 errors
-        for attempt in range(3):
+        # 3. Retry for API issues
+        for _ in range(3):
             try:
                 response = client.models.generate_content(
                     model="gemini-2.5-flash",
                     contents=prompt
                 )
-                return response.text.replace("*", "").strip()
+
+                answer = response.text.replace("*", "").strip()
+
+                if not answer:
+                    return "I couldn't find a clear answer. Please try rephrasing."
+
+                return answer
 
             except Exception as e:
                 if "503" in str(e):
@@ -115,8 +154,7 @@ Answer:
                 else:
                     raise e
 
-        # 4. Final fallback
-        return "Server is busy right now. Please try again in a few seconds."
+        return "Server is busy right now. Please try again."
 
     except Exception as e:
         return f"Error: {str(e)}"
