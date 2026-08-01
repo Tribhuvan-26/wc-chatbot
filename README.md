@@ -1,7 +1,7 @@
 # Workshop Chatbot
 
 A simple chatbot that answers user queries based on predefined data or logic.
-It can be used for basic Q
+It can be used for basic Q&A
 
 ## What it does
 - Takes user input
