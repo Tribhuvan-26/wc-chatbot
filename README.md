@@ -16,3 +16,5 @@ python app.py
 
 ## Author
 Tribhuvan da member
+
+Used a gemini 2.5 flash model to answer 
